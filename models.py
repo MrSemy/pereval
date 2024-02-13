@@ -15,7 +15,7 @@ pereval_added = Table(
     Column('connect', String),
     Column('add_time', TIME),
     Column('date_added', TIMESTAMP(timezone=False), default=datetime.datetime.now()),
-    Column('status', String),
+    Column('status', String, nullable=False, server_default='new'),
     Column('level_winter', String),
     Column('level_summer', String),
     Column('level_autumn', String),

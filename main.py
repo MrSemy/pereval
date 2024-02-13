@@ -2,18 +2,7 @@ import os
 import dotenv
 import psycopg2
 from fastapi import FastAPI
-import logging
-from logging.handlers import RotatingFileHandler
 
-
-logger = logging.getLogger('')
-logger.setLevel(logging.INFO)
-
-handler = RotatingFileHandler('log.log', mode='a', maxBytes=50000000, backupCount=5, encoding='utf-8')
-formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
-handler.setFormatter(formatter)
-
-logger.addHandler(handler)
 
 app = FastAPI(
     title="pereval",
@@ -28,8 +17,6 @@ app = FastAPI(
 
 
 def main() -> None:
-    # dotenv.load_dotenv()
-    # logger.info('Читаем .env')
     # try:
     #     with psycopg2.connect(
     #         host=os.environ["FSTR_DB_HOST"],
@@ -47,11 +34,7 @@ def main() -> None:
     #             cursor.execute("SELECT * FROM pereval_added")
     #             rows = cursor.fetchall()
     #             print(rows)
-pass
-
-
-
-
+    pass
     # except psycopg2.OperationalError as e:
     #     logger.error('Не удалось подключиться к БД')
     #     print(e)
