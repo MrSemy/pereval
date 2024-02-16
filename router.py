@@ -1,11 +1,9 @@
-import psycopg2
-from sqlalchemy import select, update, insert
+from sqlalchemy import select, update
 from sqlalchemy.ext.asyncio import AsyncSession
-import config
 from database import get_async_session
 from fastapi import APIRouter, Depends
 from models import pereval_added
-
+from schemas import SubmitData
 
 router = APIRouter(
     prefix="/pereval",
@@ -27,9 +25,24 @@ async def get_pereval_added(pereval_id: int, session: AsyncSession = Depends(get
     return str(result.all() or None)
 
 
-@router.post("/submitdata/{pereval_id:int}/{set_status:str}")
-async def submitdata(pereval_id: int, set_status: str, session: AsyncSession = Depends(get_async_session)):
-    update_status = update(pereval_added).where(pereval_added.c.id == pereval_id).values(status=set_status)
-    await session.execute(update_status)
-    await session.commit()
-    return {"status": "ok"}
+possible_status = ["new", "pending", "accepted", "rejected"]
+
+
+@router.post("/submitdata/")
+async def submitdata(submitdata: SubmitData, session: AsyncSession = Depends(get_async_session)):
+    if submitdata.status not in possible_status:
+        return {"status": "error"}
+    else:
+        update_status = update(pereval_added).where(pereval_added.c.id == submitdata.id).values(status=submitdata.status)
+        await session.execute(update_status)
+        await session.commit()
+        return {"status": "ok"}
+
+
+
+# @router.post("/submitdata/{pereval_id:int}/{set_status:str}")
+# async def submitdata(pereval_id: int, set_status: str, session: AsyncSession = Depends(get_async_session)):
+#     update_status = update(pereval_added).where(pereval_added.c.id == pereval_id).values(status=set_status)
+#     await session.execute(update_status)
+#     await session.commit()
+#     return {"status": "ok"}
