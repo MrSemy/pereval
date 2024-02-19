@@ -1,12 +1,19 @@
 
 from fastapi import FastAPI
-import router
+from router import pereval_router, submitdata_router
+
 
 
 app = FastAPI(
     title="pereval",
     version="1.0.0",
     description="pereval",
+    openapi_tags=[
+        {
+            "name": "API для получения, добавления и редактирования данных о перевалах",
+            "description": "С помощью данных API Вы сможете получить, добавить и редактировать данные о перевалах. ",
+        }
+    ]
 )
 
 
@@ -15,9 +22,12 @@ def main() -> None:
 
 
 app.include_router(
-    router.router,
+    router=pereval_router,
 )
 
+app.include_router(
+    router=submitdata_router,
+)
 
 if __name__ == "__main__":
     main()
