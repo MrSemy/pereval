@@ -18,6 +18,7 @@ class PerevalAdded(BaseModel):
     level_spring: str
     status: str
 
+
 class AddPereval(BaseModel):
     title: str
     beauty_title: str

@@ -1,7 +1,5 @@
-
 from fastapi import FastAPI
 from router import pereval_router, submitdata_router
-
 
 
 app = FastAPI(

@@ -1,8 +1,8 @@
-from sqlalchemy import select, update, insert, join
+from sqlalchemy import select, update, insert
 from sqlalchemy.ext.asyncio import AsyncSession
 from database import get_async_session
 from fastapi import APIRouter, Depends
-from models import pereval_added, pereval_images, coords, users, images
+from models import pereval_added, users
 from schemas import SubmitData, AddPereval, PerevalAdded
 import json
 import sys
