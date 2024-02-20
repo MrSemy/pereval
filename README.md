@@ -9,43 +9,37 @@ API для работы с БД Postgres, в приложении ФСТР (ст
 5) поддерживает прикрепление картинок к соответствующим перевалам
 ___
 # Документация
-Документация по приложению сгенерирована в Swagger и доступна по ссылке: 
+Документация по приложению сгенерирована в Swagger и доступна после развёртывания приложения по ссылке: (в случае если используется localhost и стандартный порт) <br> 
 http://127.0.0.1:8000/docs#
 ---
 # Установка
-Качаем проект в нужную директорию:
-
+Качаем проект в нужную директорию:  <br>
 <code>
-git clone https://github.com/MrSemy/pereval
+git clone https://github.com/MrSemy/pereval <br>
 </code>
-
-Создаем и активируем виртуальное окружение:
-
+<br>
+Создаем и активируем виртуальное окружение: <br>
 <code>
 python3 -m venv venv <br> 
 </code>
-
+<br>
 <code>
-source venv/bin/activate
+source venv/bin/activate  <br>
 </code>
-
-
-Поставить зависимости:
-
+<br>
+Поставить зависимости:  <br>
 <code>
-pip install -r requirements.txt
+pip install -r requirements.txt  <br>
 </code>
-
-В директории проекта создать файл .env, содержащий информацию вида:
-
+<br>
+В директории проекта создать файл .env, содержащий информацию вида:  <br>
 <code>
 FSTR_DB_HOST='X.X.X.X' <br>
 FSTR_DB_PORT='XXXX' <br> 
 FSTR_DB_LOGIN='login' <br>
 FSTR_DB_PASS='pass' <br>
 </code>
-
-
+<br>
 После этого проект готов к запуску
 
 ---
