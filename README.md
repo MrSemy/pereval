@@ -14,27 +14,22 @@ http://127.0.0.1:8000/docs#
 ---
 # Установка
 Качаем проект в нужную директорию:  <br>
-<code>
-git clone https://github.com/MrSemy/pereval <br>
+<code> git clone https://github.com/MrSemy/pereval <br>
 </code>
 <br>
 Создаем и активируем виртуальное окружение: <br>
-<code>
-python3 -m venv venv <br> 
+<code> python3 -m venv venv <br> 
 </code>
 <br>
-<code>
-source venv/bin/activate  <br>
+<code> source venv/bin/activate  <br>
 </code>
 <br>
 Поставить зависимости:  <br>
-<code>
-pip install -r requirements.txt  <br>
+<code> pip install -r requirements.txt  <br>
 </code>
 <br>
 В директории проекта создать файл .env, содержащий информацию вида:  <br>
-<code>
-FSTR_DB_HOST='X.X.X.X' <br>
+<code> FSTR_DB_HOST='X.X.X.X' <br>
 FSTR_DB_PORT='XXXX' <br> 
 FSTR_DB_LOGIN='login' <br>
 FSTR_DB_PASS='pass' <br>
