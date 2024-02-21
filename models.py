@@ -1,9 +1,7 @@
 import datetime
+from database import metadata
+from sqlalchemy import Integer, String, ForeignKey, Table, Column, VARCHAR, BigInteger, LargeBinary, TIME, TIMESTAMP
 
-from sqlalchemy import MetaData, Integer, String, ForeignKey, Table, Column, VARCHAR, BigInteger, LargeBinary, TIME, TIMESTAMP
-
-
-metadata = MetaData()
 
 pereval_added = Table(
     'pereval_added',

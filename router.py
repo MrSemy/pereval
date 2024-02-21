@@ -96,7 +96,7 @@ async def get_pereval_added(pereval_id: int, session: AsyncSession = Depends(get
     return str(result.all() or None)
 
 
-@submitdata_router.get("/user_mail/{user_email}", tags=["Получить информацию о данных пользователя"])
+@submitdata_router.get("/", tags=["Получить информацию о данных пользователя"])
 async def get_data_by_user(user_email: str, session: AsyncSession = Depends(get_async_session)):
     """
     Retrieve data added by user by their email address.
